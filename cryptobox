@@ -37,7 +37,8 @@ function usage {
 
 # Load modules if they aren't present
 [[ `lsmod | grep loop` ]] || echo "loading 'loop' module"; modprobe loop || errorquit "failed to load 'loop' module"
-[[ `lsmod | grep dm_mod` ]] || echo "loading 'dm_mod' module"; modprobe dm_mod || errorquit "failed to load 'dm_mod' module"
+# Removed below line as "Module dm_mod is builtin"
+# [[ `lsmod | grep dm_mod` ]] || echo "loading 'dm_mod' module"; modprobe dm_mod || errorquit "failed to load 'dm_mod' module"
 
 if [ -z "$1" ]; then
     usage; exit 1
